@@ -48,7 +48,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
             <SidebarMenu>
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.label}>
-                  <Link href={item.href} passHref legacyBehavior>
+                  <Link href={item.href}>
                     <SidebarMenuButton 
                       tooltip={item.label}
                       isActive={pathname === item.href}
@@ -62,7 +62,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
             </SidebarMenu>
           </SidebarContent>
           <SidebarFooter>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="/">
               <SidebarMenuButton tooltip="Logout">
                 <LogOut/>
                 <span>Logout</span>
