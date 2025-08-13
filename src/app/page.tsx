@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -236,9 +237,7 @@ function LoginForm() {
           <Link href="/dashboard" passHref legacyBehavior>
             <Button type="submit" className="w-full" disabled={isLoading} asChild>
                 <span>
-                {isLoading ? (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : null}
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 Login
                 </span>
             </Button>
@@ -318,7 +317,7 @@ function SignupForm() {
           <Link href="/dashboard" passHref legacyBehavior>
             <Button type="submit" className="w-full" disabled={isLoading} asChild>
               <span>
-                  {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                  {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Get Started
               </span>
             </Button>
