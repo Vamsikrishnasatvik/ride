@@ -205,6 +205,7 @@ function LoginForm() {
               placeholder="m@example.com"
               {...form.register("email")}
               autoComplete="email"
+              suppressHydrationWarning
             />
             {form.formState.errors.email && (
               <p className="text-sm text-destructive">
@@ -227,6 +228,7 @@ function LoginForm() {
               type="password"
               {...form.register("password")}
               autoComplete="current-password"
+              suppressHydrationWarning
             />
             {form.formState.errors.password && (
               <p className="text-sm text-destructive">
@@ -234,12 +236,12 @@ function LoginForm() {
               </p>
             )}
           </div>
-          <Button type="submit" className="w-full" disabled={isLoading} asChild>
-            <Link href="/dashboard">
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Login
-            </Link>
-          </Button>
+          <Link href="/dashboard" >
+            <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                Login
+            </Button>
+          </Link>
           <Button variant="outline" className="w-full">
             <Github className="mr-2 h-4 w-4" /> Login with GitHub
           </Button>
@@ -279,7 +281,7 @@ function SignupForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <div className="grid gap-2">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="John Doe" {...form.register("name")} />
+            <Input id="name" placeholder="John Doe" {...form.register("name")} suppressHydrationWarning />
             {form.formState.errors.name && (
                 <p className="text-sm text-destructive">{form.formState.errors.name.message}</p>
             )}
@@ -292,6 +294,7 @@ function SignupForm() {
               placeholder="m@example.com"
               {...form.register("email")}
               autoComplete="email"
+              suppressHydrationWarning
             />
              {form.formState.errors.email && (
                 <p className="text-sm text-destructive">{form.formState.errors.email.message}</p>
@@ -299,7 +302,7 @@ function SignupForm() {
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" {...form.register("password")} />
+            <Input id="password" type="password" {...form.register("password")} suppressHydrationWarning />
             <PasswordStrength password={password} />
              {form.formState.errors.password && (
                 <p className="text-sm text-destructive">{form.formState.errors.password.message}</p>
@@ -307,17 +310,17 @@ function SignupForm() {
           </div>
           <div className="grid gap-2">
             <Label htmlFor="confirm-password">Confirm Password</Label>
-            <Input id="confirm-password" type="password" {...form.register("confirmPassword")} />
+            <Input id="confirm-password" type="password" {...form.register("confirmPassword")} suppressHydrationWarning />
              {form.formState.errors.confirmPassword && (
                 <p className="text-sm text-destructive">{form.formState.errors.confirmPassword.message}</p>
             )}
           </div>
-          <Button type="submit" className="w-full" disabled={isLoading} asChild>
-            <Link href="/dashboard">
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Get Started
-            </Link>
-          </Button>
+          <Link href="/dashboard">
+            <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                Get Started
+            </Button>
+          </Link>
         </form>
       </CardContent>
     </Card>
