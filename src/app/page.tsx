@@ -234,14 +234,12 @@ function LoginForm() {
               </p>
             )}
           </div>
-          <Link href="/dashboard" passHref legacyBehavior>
-            <Button type="submit" className="w-full" disabled={isLoading} asChild>
-                <span>
-                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Login
-                </span>
-            </Button>
-          </Link>
+          <Button type="submit" className="w-full" disabled={isLoading} asChild>
+            <Link href="/dashboard">
+              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              Login
+            </Link>
+          </Button>
           <Button variant="outline" className="w-full">
             <Github className="mr-2 h-4 w-4" /> Login with GitHub
           </Button>
@@ -314,14 +312,12 @@ function SignupForm() {
                 <p className="text-sm text-destructive">{form.formState.errors.confirmPassword.message}</p>
             )}
           </div>
-          <Link href="/dashboard" passHref legacyBehavior>
-            <Button type="submit" className="w-full" disabled={isLoading} asChild>
-              <span>
-                  {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  Get Started
-              </span>
-            </Button>
-          </Link>
+          <Button type="submit" className="w-full" disabled={isLoading} asChild>
+            <Link href="/dashboard">
+              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              Get Started
+            </Link>
+          </Button>
         </form>
       </CardContent>
     </Card>
